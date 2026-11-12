@@ -11,7 +11,10 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientLifecycleEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
+import com.violet.hud.DeathFx;
 import com.violet.hud.FpsBoost;
+import com.violet.gui.VioletTitleScreen;
+import net.minecraft.client.gui.screen.TitleScreen;
 import net.minecraft.client.gui.screen.DeathScreen;
 import net.fabricmc.fabric.api.client.rendering.v1.hud.HudElementRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.hud.VanillaHudElements;
@@ -68,6 +71,10 @@ public class VioletClient implements ClientModInitializer {
         }
         prevDown = down;
         FpsBoost.tick(mc);
+        DeathFx.tick(mc);
+        if (Modules.menuTheme.enabled && mc.currentScreen != null && mc.currentScreen.getClass() == TitleScreen.class) {
+            mc.setScreen(new VioletTitleScreen());
+        }
 
         if (mc.player == null) return;
         Stats.tick(mc);

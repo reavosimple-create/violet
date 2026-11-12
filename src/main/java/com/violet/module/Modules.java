@@ -18,7 +18,7 @@ public final class Modules {
     public static final Setting.Num crossSize = crosshair.add(new Setting.Num("Size", 5, 1, 20, 1));
     public static final Setting.Num crossGap = crosshair.add(new Setting.Num("Gap", 3, 0, 15, 1));
     public static final Setting.Num crossThick = crosshair.add(new Setting.Num("Thickness", 1, 1, 6, 1));
-    public static final Setting.Hue crossColor = crosshair.add(new Setting.Hue("Color", 0.78f));
+    public static final Setting.Hue crossColor = crosshair.add(new Setting.Hue("Color", 0.52f));
     public static final Setting.Bool crossOutline = crosshair.add(new Setting.Bool("Outline", true));
     public static final Setting.Bool crossDynamic = crosshair.add(new Setting.Bool("Dynamic Gap", false));
 
@@ -33,18 +33,18 @@ public final class Modules {
     public static final Setting.Num flashDur = hitFlash.add(new Setting.Num("Duration (ms)", 250, 100, 800, 50));
 
     public static final Module tint = reg(new Module("Color Tint", "Full-screen color filter", V, false));
-    public static final Setting.Hue tintColor = tint.add(new Setting.Hue("Color", 0.78f));
+    public static final Setting.Hue tintColor = tint.add(new Setting.Hue("Color", 0.52f));
     public static final Setting.Num tintStrength = tint.add(new Setting.Num("Strength %", 25, 5, 80, 1));
 
     public static final Module sky = reg(new Module("Custom Sky", "Recolor the sky (may not work on 1.21.11)", V, false));
-    public static final Setting.Mode skyMode = sky.add(new Setting.Mode("Preset", "Purple Haze", "Sunset", "Midnight", "Candy", "Toxic", "Custom"));
-    public static final Setting.Hue skyHue = sky.add(new Setting.Hue("Custom Color", 0.8f));
+    public static final Setting.Mode skyMode = sky.add(new Setting.Mode("Preset", "Glacier", "Sunset", "Midnight", "Candy", "Toxic", "Custom"));
+    public static final Setting.Hue skyHue = sky.add(new Setting.Hue("Custom Color", 0.55f));
 
     public static final Module zoom = reg(new Module("Zoom", "Hold C to zoom", V, true));
     public static final Setting.Num zoomFov = zoom.add(new Setting.Num("Zoom FOV", 30, 10, 70, 1));
 
     public static final Module blockOutline = reg(new Module("Block Outline", "Colored, thick outline on the block you look at", V, true));
-    public static final Setting.Hue outlineColor = blockOutline.add(new Setting.Hue("Color", 0.78f));
+    public static final Setting.Hue outlineColor = blockOutline.add(new Setting.Hue("Color", 0.52f));
     public static final Setting.Num outlineThick = blockOutline.add(new Setting.Num("Thickness", 2, 1, 8, 1));
     public static final Setting.Bool outlineHideBack = blockOutline.add(new Setting.Bool("Hide Back Edges", true));
     public static final Setting.Num outlineFov = blockOutline.add(new Setting.Num("FOV Correction", 0, -15, 15, 0.5));
@@ -104,7 +104,7 @@ public final class Modules {
     // ---------------- HUD ----------------
     public static final Module hudStyle = reg(new Module("HUD Style", "Colors for all HUD elements", H, true));
     public static final Setting.Bool hudRainbow = hudStyle.add(new Setting.Bool("Rainbow", false));
-    public static final Setting.Hue hudColor = hudStyle.add(new Setting.Hue("Accent", 0.76f));
+    public static final Setting.Hue hudColor = hudStyle.add(new Setting.Hue("Accent", 0.52f));
     public static final Setting.Bool hudBg = hudStyle.add(new Setting.Bool("Background", true));
 
     public static final Module watermark = reg(new Module("Watermark", "Violet title bar", H, true));
@@ -125,7 +125,12 @@ public final class Modules {
     public static final Module session = reg(new Module("Session Timer", "Time played this session", H, false));
 
     // ---------------- MISC ----------------
-    public static final Module menuTheme = reg(new Module("Menu Theme", "Purple styling on menus + title button", M, true));
+    public static final Module menuTheme = reg(new Module("Menu Theme", "Custom title screen + clean menu styling", M, true));
+    public static final Module deathFx = reg(new Module("Death FX", "Cinematic effects when you die", M, true));
+    public static final Setting.Bool deathScreenFx = deathFx.add(new Setting.Bool("Screen Effects", true));
+    public static final Setting.Bool deathBurst = deathFx.add(new Setting.Bool("World Burst", true));
+    public static final Setting.Num deathBurstCount = deathFx.add(new Setting.Num("Burst Amount", 60, 10, 150, 5));
+    public static final Setting.Hue deathColor = deathFx.add(new Setting.Hue("Color", 0.99f));
     public static final Module autoRespawn = reg(new Module("Auto Respawn", "Respawn instantly on the death screen", M, false));
     public static final Module toggleSprint = reg(new Module("Toggle Sprint", "Auto-sprint while moving forward", M, false));
 
@@ -136,7 +141,7 @@ public final class Modules {
             case "Candy" -> 0xFF8FD8;
             case "Toxic" -> 0x6BFF3A;
             case "Custom" -> skyHue.get() & 0xFFFFFF;
-            default -> 0x8B5CF6;
+            default -> 0x38BDF8;
         };
     }
 }

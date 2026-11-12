@@ -4,7 +4,7 @@ import com.violet.module.Modules;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.option.CloudRenderMode;
 import net.minecraft.client.option.GameOptions;
-import net.minecraft.client.option.ParticlesMode;
+import net.minecraft.particle.ParticlesMode; 
 import net.minecraft.client.option.SimpleOption;
 import com.violet.module.Module;
 import com.violet.module.Setting;

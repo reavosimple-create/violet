@@ -95,7 +95,7 @@ public final class Stats {
                 case "Glass" -> SoundEvents.BLOCK_GLASS_BREAK;
                 default -> SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP;
             };
-            mc.getSoundManager().play(PositionedSoundInstance.master(se, (float) Modules.hitPitch.value, (float) Modules.hitVolume.value));
+            mc.getSoundManager().play(PositionedSoundInstance.ui(se, (float) Modules.hitPitch.value, (float) Modules.hitVolume.value));
         }
 
         if (Modules.hitParticles.enabled) {

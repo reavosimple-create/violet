@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "id": "violet",
+  "version": "${version}",
+  "name": "Violet Client",
+  "description": "Purple-themed PvP utility HUD and mod menu.",
+  "authors": ["you"],
+  "icon": "assets/violet/icon.png",
+  "environment": "client",
+  "entrypoints": { "client": ["com.violet.VioletClient"] },
+  "mixins": ["violet.mixins.json"],
+  "depends": {
+    "fabricloader": ">=0.18.0",
+    "minecraft": "~1.21.11",
+    "java": ">=21",
+    "fabric-api": "*"
+  }
+}
